@@ -35,7 +35,7 @@ fun stabilize(
     // Except if yaw is true, then we stabilize
     idealAngularAcceleration.sub(
         omega.x(),
-        if (!yaw) 0.0 else omega.y(),
+        if (!yaw) 0.0 else omega.x(),
         omega.z()
     )
 
