@@ -220,11 +220,11 @@ class EurekaShipControl : ShipForcesInducer, ServerTickListener {
             val maxOmegaY = maxLinearSpeed / largestDistance
             val maxAlphaY = maxLinearAcceleration / largestDistance
 
-            val isBelowMaxTurnSpeed = abs(omega.y()) < maxOmegaY
+            val isBelowMaxTurnSpeed = abs(omega.x()) < maxOmegax
 
             val normalizedAlphaYMultiplier =
                 if (isBelowMaxTurnSpeed && control.leftImpulse != 0.0f) control.leftImpulse.toDouble()
-                else -omega.y().coerceIn(-1.0, 1.0)
+                else -omega.x().coerceIn(-1.0, 1.0)
 
             val idealAlphaY = normalizedAlphaYMultiplier * maxAlphaY
 
